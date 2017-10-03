@@ -18,10 +18,10 @@ package com.suleiman.pagination.activity;
 
 import android.util.Log;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
+import com.suleiman.pagination.R;
 
 
 public class MyFirebaseInstanceTokenService extends FirebaseInstanceIdService {
@@ -49,7 +49,7 @@ public class MyFirebaseInstanceTokenService extends FirebaseInstanceIdService {
 
     /**
      * Persist token to third-party servers.
-     *
+     * <p>
      * Modify this method to associate the user's FCM InstanceID token with any server-side account
      * maintained by your application.
      *
@@ -58,11 +58,8 @@ public class MyFirebaseInstanceTokenService extends FirebaseInstanceIdService {
     private void sendRegistrationToServer(String token) {
         FirebaseDatabase.getInstance()
                 .getReference()
+                .child(getString(R.string.table_device_tokens))
                 .push()
-                .setValue(new ChatMessage("",
-                        FirebaseAuth.getInstance()
-                                .getCurrentUser()
-                                .getDisplayName())
-                );
+                .setValue(new DeviceToken(token));
     }
 }

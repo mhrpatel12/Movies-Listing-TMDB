@@ -16,6 +16,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.suleiman.pagination.R;
 import com.suleiman.pagination.api.MovieApi;
 import com.suleiman.pagination.api.MovieService;
+import com.suleiman.pagination.models.Genres;
 import com.suleiman.pagination.models.ResultMovieDetails;
 
 import retrofit2.Call;
@@ -28,12 +29,22 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private int movieId = 0;
     private MovieService movieService;
 
+    private TextView movieVoteCount, movieAverageVote, moviePopularity, movieReleaseDateWithRunTime, movieGenres, movieLanguage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        movieVoteCount = (TextView) findViewById(R.id.movie_vote_count);
+        movieAverageVote = (TextView) findViewById(R.id.movie_average_vote);
+        moviePopularity = (TextView) findViewById(R.id.movie_popularity);
+
+        movieReleaseDateWithRunTime = (TextView) findViewById(R.id.movie_ReleaseDateWithRunTime);
+        movieGenres = (TextView) findViewById(R.id.movie_genres);
+        movieLanguage = (TextView) findViewById(R.id.movie_language);
 
         movieId = getIntent().getIntExtra(getString(R.string.movie_id), 0);
 
@@ -57,7 +68,26 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 if (response.body() != null) {
                     loadImage(response.body().getPosterPath()).into((ImageView) findViewById(R.id.imgPoster));
                     ((TextView) toolbar.findViewById(R.id.txtTitle)).setText(response.body().getTitle());
-                    ((TextView) findViewById(R.id.txtOverview)).setText(response.body().getOverview());
+                    ((TextView) findViewById(R.id.movie_overview)).setText(response.body().getOverview());
+
+                    movieVoteCount.setText(response.body().getVoteCount() + " " + getString(R.string.vote_count));
+                    movieAverageVote.setText(response.body().getVoteAverage() + "");
+                    moviePopularity.setText(response.body().getPopularity() + "");
+
+                    int hours = response.body().getRuntime() / 60; //since both are ints, you get an int
+                    int minutes = response.body().getRuntime() % 60;
+                    movieReleaseDateWithRunTime.setText(
+                            hours + "h " +
+                                    minutes + " min"
+                                    + " | " +
+                                    response.body().getReleaseDate());
+                    movieLanguage.setText(response.body().getOriginalLanguage());
+
+                    String genres = "";
+                    for (Genres genre : response.body().getGenres()) {
+                        genres = genres + genre.getName()+ ", ";
+                    }
+                    movieGenres.setText(genres.substring(0, genres.length() - 2));
                 }
             }
 

@@ -3,6 +3,8 @@ package com.suleiman.pagination.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * Pagination
  * Created by Suleiman19 on 10/27/16.
@@ -50,6 +52,13 @@ public class ResultMovieDetails {
     @SerializedName("vote_average")
     @Expose
     private Double voteAverage;
+    @SerializedName("runtime")
+    @Expose
+    private Integer runtime;
+    @SerializedName("genres")
+    @Expose
+    private List<Genres> genres;
+
 
     /**
      * @return The posterPath
@@ -233,6 +242,21 @@ public class ResultMovieDetails {
         this.voteAverage = voteAverage;
     }
 
+    public Integer getRuntime() {
+        return runtime;
+    }
+
+    public void setRuntime(Integer runtime) {
+        this.runtime = runtime;
+    }
+
+    public List<Genres> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<Genres> genres) {
+        this.genres = genres;
+    }
 }
 
 

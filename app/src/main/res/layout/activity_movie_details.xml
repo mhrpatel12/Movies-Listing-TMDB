@@ -22,11 +22,50 @@
             app:contentScrim="@color/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <ImageView
-                android:id="@+id/imgPoster"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerInside" />
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <ImageView
+                    android:id="@+id/imgPoster"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.4"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/movie_ReleaseDateWithRunTime"
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/fab_margin"
+                        android:text="@string/dummy_date" />
+
+                    <TextView
+                        android:id="@+id/movie_genres"
+                        android:layout_width="match_parent"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/fab_margin"
+                        android:text="@string/dummy_genres" />
+
+                    <TextView
+                        android:id="@+id/movie_language"
+                        android:layout_width="match_parent"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/fab_margin"
+                        android:text="@string/movie_lang" />
+
+                </LinearLayout>
+            </LinearLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -41,7 +80,9 @@
                     style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/margin_end_toolbar"
+                    android:layout_marginRight="@dimen/margin_end_toolbar"
+                    android:gravity="center_vertical|end"
                     android:text="@string/action_settings" />
 
             </android.support.v7.widget.Toolbar>
@@ -50,8 +91,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_movie_details" />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -59,5 +98,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
+
+    <include layout="@layout/content_movie_details" />
 
 </android.support.design.widget.CoordinatorLayout>
