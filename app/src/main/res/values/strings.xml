@@ -104,4 +104,5 @@
     <string name="vote_count">votes</string>
     <string name="dummy_popularity">457.6045</string>
     <string name="dummy_popularity_socre">Popularity score</string>
+    <string name="prompt_message">Write your message here</string>
 </resources>
