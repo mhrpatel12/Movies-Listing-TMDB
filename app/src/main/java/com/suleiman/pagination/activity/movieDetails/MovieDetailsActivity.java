@@ -1,9 +1,11 @@
-package com.suleiman.pagination.activity;
+package com.suleiman.pagination.activity.movieDetails;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,6 +16,7 @@ import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.suleiman.pagination.R;
+import com.suleiman.pagination.activity.chatRoom.ChatRoomActivity;
 import com.suleiman.pagination.api.MovieApi;
 import com.suleiman.pagination.api.MovieService;
 import com.suleiman.pagination.models.Genres;
@@ -55,7 +58,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MovieDetailsActivity.this, GroupChatActivity.class);
+                Intent intent = new Intent(MovieDetailsActivity.this, ChatRoomActivity.class);
                 startActivity(intent);
             }
         });
@@ -74,7 +77,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
                     movieAverageVote.setText(response.body().getVoteAverage() + "");
                     moviePopularity.setText(response.body().getPopularity() + "");
 
-                    int hours = response.body().getRuntime() / 60; //since both are ints, you get an int
+                    int hours = response.body().getRuntime() / 60;
                     int minutes = response.body().getRuntime() % 60;
                     movieReleaseDateWithRunTime.setText(
                             hours + "h " +
@@ -85,7 +88,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
                     String genres = "";
                     for (Genres genre : response.body().getGenres()) {
-                        genres = genres + genre.getName()+ ", ";
+                        genres = genres + genre.getName() + ", ";
                     }
                     movieGenres.setText(genres.substring(0, genres.length() - 2));
                 }
@@ -93,7 +96,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResultMovieDetails> call, Throwable t) {
-
+                Snackbar snackbar = Snackbar
+                        .make(((CoordinatorLayout) findViewById(R.id.layoutMovieDetails)), t.toString(), Snackbar.LENGTH_LONG);
+                snackbar.show();
             }
         });
     }
@@ -105,7 +110,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         );
     }
 
-    private static final String BASE_URL_IMG = "https://image.tmdb.org/t/p/w342";
+    private String BASE_URL_IMG = "https://image.tmdb.org/t/p/w342";
 
     private DrawableRequestBuilder<String> loadImage(@NonNull String posterPath) {
         return Glide

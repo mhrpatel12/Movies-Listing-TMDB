@@ -3,12 +3,6 @@ package com.suleiman.pagination.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Pagination
- * Created by Suleiman19 on 10/27/16.
- * Copyright (c) 2016. Suleiman Ali Shakir. All rights reserved.
- */
-
 public class Genres {
     @SerializedName("id")
     @Expose

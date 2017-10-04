@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="@dimen/text_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.suleiman.pagination.activity.MovieDetailsActivity"
+    tools:context="com.suleiman.pagination.activity.movieDetails.MovieDetailsActivity"
     tools:showIn="@layout/activity_movie_details">
 
     <LinearLayout

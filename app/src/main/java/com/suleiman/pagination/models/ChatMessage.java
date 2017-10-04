@@ -1,10 +1,7 @@
-package com.suleiman.pagination.activity;
+package com.suleiman.pagination.models;
 
 import java.util.Date;
 
-/**
- * Created by Hathibelagal on 7/10/16.
- */
 public class ChatMessage {
 
     private String messageText;

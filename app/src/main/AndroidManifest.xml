@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,23 +23,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MovieDetailsActivity"
+            android:name=".activity.movieDetails.MovieDetailsActivity"
             android:label="@string/title_activity_movie_details"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.GroupChatActivity"
+            android:name=".activity.chatRoom.ChatRoomActivity"
             android:screenOrientation="portrait" />
 
         <service
-            android:name=".activity.MyFirebaseInstanceIDService"
+            android:name=".service.MyFirebaseInstanceIDService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service
-            android:name=".activity.MyFirebaseInstanceTokenService"
+            android:name=".service.MyFirebaseInstanceTokenService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />

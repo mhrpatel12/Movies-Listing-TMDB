@@ -1,4 +1,4 @@
-package com.suleiman.pagination.activity;
+package com.suleiman.pagination.activity.main.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,15 +21,12 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.suleiman.pagination.R;
+import com.suleiman.pagination.activity.movieDetails.MovieDetailsActivity;
 import com.suleiman.pagination.models.Result;
 import com.suleiman.pagination.utils.PaginationAdapterCallback;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by Suleiman on 19/10/16.
- */
 
 public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -150,24 +147,12 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         Helpers - bind Views
    _________________________________________________________________________________________________
     */
-
-    /**
-     * @param result
-     * @return [releasedate] | [2letterlangcode]
-     */
     private String formatYearLabel(Result result) {
         return result.getReleaseDate()
                 + " | "
                 + result.getOriginalLanguage().toUpperCase();
     }
 
-    /**
-     * Using Glide to handle image loading.
-     * Learn more about Glide here:
-     *
-     * @param posterPath from {@link Result#getPosterPath()}
-     * @return Glide builder
-     */
     private DrawableRequestBuilder<String> loadImage(@NonNull String posterPath) {
         return Glide
                 .with(context)
@@ -235,12 +220,6 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return movieResultTopRatedMovies.get(position);
     }
 
-    /**
-     * Displays Pagination retry footer view along with appropriate errorMsg
-     *
-     * @param show
-     * @param errorMsg to display if page load fails
-     */
     public void showRetry(boolean show, @Nullable String errorMsg) {
         retryPageLoad = show;
         notifyItemChanged(movieResultTopRatedMovies.size() - 1);

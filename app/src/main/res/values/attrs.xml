@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ChristmasTree">
+        <attr name="drawable_color" format="color" />
+        <attr name="drawable_color_inverse" format="color" />
+        <attr name="drawable_color_background" format="color" />
+        <attr name="checkbox_text_color" format="color" />
+        <attr name="card_view_back_color" format="color" />
+        <attr name="card_view_title_text_color" format="color" />
+
+        <attr name="tab_color_unchecked" format="color" />
+    </declare-styleable>
+</resources>

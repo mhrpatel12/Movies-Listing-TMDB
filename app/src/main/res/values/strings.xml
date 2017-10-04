@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pagination</string>
+    <string name="app_name">TMDB</string>
     <string name="my_api_key">03b74cc3c41ef609fa853bd5943a4176</string>
     <string name="error_msg">Sorry! Couldn\'t fetch movies.</string>
     <string name="btn_retry">Retry</string>
@@ -24,4 +24,5 @@
     <string name="dummy_date">01/01/0001</string>
     <string name="movie_lang">en</string>
     <string name="dummy_genres">Action,Drama,Romance</string>
+    <string name="default_notification_channel_id">fcm_default_channel</string>
 </resources>

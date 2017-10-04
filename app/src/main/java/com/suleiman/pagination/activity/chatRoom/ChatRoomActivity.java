@@ -1,4 +1,4 @@
-package com.suleiman.pagination.activity;
+package com.suleiman.pagination.activity.chatRoom;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,8 +28,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 import com.suleiman.pagination.R;
+import com.suleiman.pagination.models.ChatMessage;
 
-public class GroupChatActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+public class ChatRoomActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private static final int SIGN_IN_REQUEST_CODE = 1;
     private FirebaseListAdapter<ChatMessage> adapter;
@@ -128,7 +129,7 @@ public class GroupChatActivity extends AppCompatActivity implements GoogleApiCli
         }
     }
 
-    private static final String TAG = GroupChatActivity.class.getSimpleName();
+    private static final String TAG = ChatRoomActivity.class.getSimpleName();
 
     private void firebaseAuthWithGoogle(final GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
@@ -147,10 +148,10 @@ public class GroupChatActivity extends AppCompatActivity implements GoogleApiCli
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithCredential", task.getException());
-                            Toast.makeText(GroupChatActivity.this, "Authentication failed.",
+                            Toast.makeText(ChatRoomActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         } else if (task.isSuccessful()) {
-                            Toast.makeText(GroupChatActivity.this,
+                            Toast.makeText(ChatRoomActivity.this,
                                     "Successfully signed in. Welcome " + acct.getDisplayName() + "!",
                                     Toast.LENGTH_LONG)
                                     .show();

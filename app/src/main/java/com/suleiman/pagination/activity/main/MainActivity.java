@@ -1,4 +1,4 @@
-package com.suleiman.pagination.activity;
+package com.suleiman.pagination.activity.main;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.suleiman.pagination.R;
+import com.suleiman.pagination.activity.main.adapter.PaginationAdapter;
 import com.suleiman.pagination.api.MovieApi;
 import com.suleiman.pagination.api.MovieService;
 import com.suleiman.pagination.models.Result;
@@ -46,12 +47,10 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
 
     private boolean isLoading = false;
     private boolean isLastPage = false;
-    // limiting to 5 for this tutorial, since total pages in actual API is very large. Feel free to modify.
     private int TOTAL_PAGES = 1;
     private int currentPage = PAGE_START;
 
     private MovieService movieService;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +96,6 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
             }
         });
 
-        //init service and load data
         movieService = MovieApi.getClient().create(MovieService.class);
 
         loadFirstPage();
@@ -115,7 +113,6 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
     private void loadFirstPage() {
         Log.d(TAG, "loadFirstPage: ");
 
-        // To ensure list is visible when retry button in error view is clicked
         hideErrorView();
 
         callTopRatedMoviesApi().enqueue(new Callback<TopRatedMovies>() {
@@ -142,17 +139,12 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
         });
     }
 
-    /**
-     * @param response extracts List<{@link Result >} from response
-     * @return
-     */
     private List<Result> fetchResults(Response<TopRatedMovies> response) {
         TopRatedMovies topRatedMovies = response.body();
         return topRatedMovies.getResultTopRatedMovies();
     }
 
     private void loadNextPage() {
-        Log.d(TAG, "loadNextPage: " + currentPage);
 
         callTopRatedMoviesApi().enqueue(new Callback<TopRatedMovies>() {
             @Override
@@ -175,13 +167,6 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
         });
     }
 
-
-    /**
-     * Performs a Retrofit call to the top rated movies API.
-     * Same API call for Pagination.
-     * As {@link #currentPage} will be incremented automatically
-     * by @{@link PaginationScrollListener} to load next page.
-     */
     private Call<TopRatedMovies> callTopRatedMoviesApi() {
         return movieService.getTopRatedMovies(
                 getString(R.string.my_api_key),
@@ -196,11 +181,6 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
         loadNextPage();
     }
 
-
-    /**
-     * @param throwable required for {@link #fetchErrorMessage(Throwable)}
-     * @return
-     */
     private void showErrorView(Throwable throwable) {
 
         if (errorLayout.getVisibility() == View.GONE) {
@@ -211,10 +191,6 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
         }
     }
 
-    /**
-     * @param throwable to identify the type of error
-     * @return appropriate error message
-     */
     private String fetchErrorMessage(Throwable throwable) {
         String errorMsg = getResources().getString(R.string.error_msg_unknown);
 
@@ -229,7 +205,6 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
 
     // Helpers -------------------------------------------------------------------------------------
 
-
     private void hideErrorView() {
         if (errorLayout.getVisibility() == View.VISIBLE) {
             errorLayout.setVisibility(View.GONE);
@@ -237,11 +212,6 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
         }
     }
 
-    /**
-     * Remember to add android.permission.ACCESS_NETWORK_STATE permission.
-     *
-     * @return
-     */
     private boolean isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo() != null;

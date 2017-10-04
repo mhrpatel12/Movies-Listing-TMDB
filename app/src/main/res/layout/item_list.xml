@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_margin_half"
-        app:cardBackgroundColor="@color/placeholder_grey"
+        app:cardBackgroundColor="?attr/card_view_title_text_color"
         app:cardCornerRadius="3dp"
         app:cardPreventCornerOverlap="false">
 
@@ -35,7 +35,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
         android:layout_marginTop="@dimen/activity_margin"
-        android:background="@android:color/white"
+        android:background="?attr/card_view_back_color"
         android:orientation="vertical"
         android:paddingBottom="@dimen/activity_margin"
         android:paddingEnd="@dimen/activity_margin"
@@ -53,7 +53,7 @@
             android:alpha="0.38"
             android:gravity="end"
             android:maxLines="1"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textStyle="bold"
             tools:text="2009 | EN" />
 
@@ -125,7 +125,8 @@
                     android:drawableStart="@drawable/ic_popularity_24dp"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:text="@string/dummy_popularity" />
+                    android:text="@string/dummy_popularity"
+                    android:textColor="@android:color/white" />
 
                 <TextView
                     android:layout_width="match_parent"

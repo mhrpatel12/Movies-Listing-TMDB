@@ -5,12 +5,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Pagination
- * Created by Suleiman19 on 10/27/16.
- * Copyright (c) 2016. Suleiman Ali Shakir. All rights reserved.
- */
-
 public class MovieApi {
 
     private static Retrofit retrofit = null;

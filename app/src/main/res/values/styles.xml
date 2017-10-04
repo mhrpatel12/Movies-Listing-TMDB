@@ -3,10 +3,40 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+<!--        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>-->
+
+        <item name="colorPrimary">@color/primary_purple</item>
+        <item name="colorPrimaryDark">@color/primary_dark_purple</item>
+        <item name="colorAccent">@color/accent_purple</item>
+        <item name="checkbox_text_color">@color/primary_text_purple</item>
+        <item name="drawable_color">@color/accent_purple</item>
+        <item name="card_view_back_color">@color/colorBackCard_purple</item>
+        <item name="card_view_title_text_color">@color/primary_dark_purple</item>
+        <item name="drawable_color_inverse">@color/primary_dark_purple</item>
+        <item name="drawable_color_background">@color/purple_back</item>
+        <item name="tab_color_unchecked">@color/primary_text_purple</item>
+        <item name="android:colorBackground">@color/purple_back</item>
+
+        <item name="android:textColor">@color/primary_text_purple</item>
+        <item name="android:textColorPrimary">@color/primary_text_purple</item>
+        <item name="android:textColorSecondary">@color/secondary_text_purple</item>
+
+        <item name="colorControlNormal">@color/accent_purple</item>
+        <item name="colorControlActivated">@color/accent_purple</item>
+        <item name="colorControlHighlight">@color/drawable_dark_light</item>
+
+        <item name="alertDialogTheme">@style/dialog</item>
+    </style>
+
+    <style name="dialog" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
+        <item name="checkbox_text_color">@color/text_default_material_dark_primary</item>
+        <item name="android:textColor">@color/text_default_material_dark_primary</item>
+        <item name="android:textColorPrimary">@color/text_default_material_dark_primary</item>
+        <item name="android:textColorSecondary">@color/text_default_material_dark_secondary</item>
+        <item name="android:background">?attr/drawable_color_background</item>
     </style>
 
     <style name="CircularProgress" parent="Theme.AppCompat.Light">

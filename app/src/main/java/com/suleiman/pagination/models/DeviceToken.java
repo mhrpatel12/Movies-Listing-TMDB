@@ -1,8 +1,5 @@
-package com.suleiman.pagination.activity;
+package com.suleiman.pagination.models;
 
-/**
- * Created by Hathibelagal on 7/10/16.
- */
 public class DeviceToken {
 
     private String deviceToken;
