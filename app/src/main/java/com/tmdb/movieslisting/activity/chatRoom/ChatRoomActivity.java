@@ -78,6 +78,9 @@ public class ChatRoomActivity extends AppCompatActivity implements GoogleApiClie
             public void onClick(View view) {
                 EditText input = (EditText) findViewById(R.id.input);
 
+                if ((input.getText() + "").trim().equals("")) {
+                    return;
+                }
                 // Read the input field and push a new instance
                 // of ChatMessage to the Firebase database
                 FirebaseDatabase.getInstance()
