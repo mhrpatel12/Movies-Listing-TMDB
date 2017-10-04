@@ -1,4 +1,4 @@
-package com.suleiman.pagination.activity.movieDetails;
+package com.tmdb.movieslisting.activity.movieDetails;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,12 +15,12 @@ import android.widget.TextView;
 import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.suleiman.pagination.R;
-import com.suleiman.pagination.activity.chatRoom.ChatRoomActivity;
-import com.suleiman.pagination.api.MovieApi;
-import com.suleiman.pagination.api.MovieService;
-import com.suleiman.pagination.models.Genres;
-import com.suleiman.pagination.models.ResultMovieDetails;
+import com.tmdb.movieslisting.R;
+import com.tmdb.movieslisting.activity.chatRoom.ChatRoomActivity;
+import com.tmdb.movieslisting.api.MovieApi;
+import com.tmdb.movieslisting.api.MovieService;
+import com.tmdb.movieslisting.models.Genres;
+import com.tmdb.movieslisting.models.ResultMovieDetails;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,8 +1,8 @@
-package com.suleiman.pagination.api;
+package com.tmdb.movieslisting.api;
 
 
-import com.suleiman.pagination.models.ResultMovieDetails;
-import com.suleiman.pagination.models.TopRatedMovies;
+import com.tmdb.movieslisting.models.ResultMovieDetails;
+import com.tmdb.movieslisting.models.TopRatedMovies;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

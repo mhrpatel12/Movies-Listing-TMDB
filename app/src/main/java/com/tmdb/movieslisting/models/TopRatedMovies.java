@@ -1,4 +1,4 @@
-package com.suleiman.pagination.models;
+package com.tmdb.movieslisting.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

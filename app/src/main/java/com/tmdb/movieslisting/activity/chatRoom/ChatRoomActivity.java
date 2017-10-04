@@ -1,4 +1,4 @@
-package com.suleiman.pagination.activity.chatRoom;
+package com.tmdb.movieslisting.activity.chatRoom;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,15 +27,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
-import com.suleiman.pagination.R;
-import com.suleiman.pagination.models.ChatMessage;
+import com.tmdb.movieslisting.R;
+import com.tmdb.movieslisting.models.ChatMessage;
 
 public class ChatRoomActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private static final int SIGN_IN_REQUEST_CODE = 1;
     private FirebaseListAdapter<ChatMessage> adapter;
     private ListView listOfMessages;
-    private GoogleApiClient mGoogleApiClientAuth;
     private FirebaseAuth mAuth;
 
     @Override
@@ -50,8 +49,8 @@ public class ChatRoomActivity extends AppCompatActivity implements GoogleApiClie
                 .requestEmail()
                 .build();
 
-        mGoogleApiClientAuth = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+        GoogleApiClient mGoogleApiClientAuth = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
@@ -59,10 +58,6 @@ public class ChatRoomActivity extends AppCompatActivity implements GoogleApiClie
             // Start sign in/sign up activity
             Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClientAuth);
             startActivityForResult(signInIntent, SIGN_IN_REQUEST_CODE);
-
-          /*  startActivityForResult(
-                    AuthUI.getInstance().createSignInIntentBuilder().build(),
-                    SIGN_IN_REQUEST_CODE*/
 
         } else {
             // User is already signed in. Therefore, display
@@ -133,8 +128,6 @@ public class ChatRoomActivity extends AppCompatActivity implements GoogleApiClie
 
     private void firebaseAuthWithGoogle(final GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-        // [START_EXCLUDE silent]
-        // [END_EXCLUDE]
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
@@ -142,10 +135,6 @@ public class ChatRoomActivity extends AppCompatActivity implements GoogleApiClie
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
-
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithCredential", task.getException());
                             Toast.makeText(ChatRoomActivity.this, "Authentication failed.",
@@ -157,8 +146,6 @@ public class ChatRoomActivity extends AppCompatActivity implements GoogleApiClie
                                     .show();
                             displayChatMessages();
                         }
-                        // [START_EXCLUDE]
-                        // [END_EXCLUDE]
                     }
                 });
     }

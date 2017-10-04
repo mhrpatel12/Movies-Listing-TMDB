@@ -1,4 +1,4 @@
-package com.suleiman.pagination.api;
+package com.tmdb.movieslisting.api;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

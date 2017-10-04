@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="@dimen/text_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.suleiman.pagination.activity.movieDetails.MovieDetailsActivity"
+    tools:context=".activity.movieDetails.MovieDetailsActivity"
     tools:showIn="@layout/activity_movie_details">
 
     <LinearLayout
@@ -67,7 +67,8 @@
                     android:drawableStart="@drawable/ic_popularity_24dp"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
-                    android:text="@string/dummy_popularity" />
+                    android:text="@string/dummy_popularity"
+                    android:textColor="@android:color/white" />
 
                 <TextView
                     android:layout_width="match_parent"

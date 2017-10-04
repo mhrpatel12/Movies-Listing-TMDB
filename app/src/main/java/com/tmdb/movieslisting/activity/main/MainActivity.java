@@ -1,4 +1,4 @@
-package com.suleiman.pagination.activity.main;
+package com.tmdb.movieslisting.activity.main;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -14,14 +14,14 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.suleiman.pagination.R;
-import com.suleiman.pagination.activity.main.adapter.PaginationAdapter;
-import com.suleiman.pagination.api.MovieApi;
-import com.suleiman.pagination.api.MovieService;
-import com.suleiman.pagination.models.Result;
-import com.suleiman.pagination.models.TopRatedMovies;
-import com.suleiman.pagination.utils.PaginationAdapterCallback;
-import com.suleiman.pagination.utils.PaginationScrollListener;
+import com.tmdb.movieslisting.R;
+import com.tmdb.movieslisting.activity.main.adapter.PaginationAdapter;
+import com.tmdb.movieslisting.api.MovieApi;
+import com.tmdb.movieslisting.api.MovieService;
+import com.tmdb.movieslisting.models.Result;
+import com.tmdb.movieslisting.models.TopRatedMovies;
+import com.tmdb.movieslisting.utils.PaginationAdapterCallback;
+import com.tmdb.movieslisting.utils.PaginationScrollListener;
 
 import java.util.List;
 import java.util.concurrent.TimeoutException;

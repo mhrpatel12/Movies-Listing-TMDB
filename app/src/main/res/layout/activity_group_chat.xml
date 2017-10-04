@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".activity.chatRoom.ChatRoomActivity">
+    tools:context="com.tmdb.movieslisting.activity.chatRoom.ChatRoomActivity">
 
     <ListView
         android:id="@+id/list_of_messages"

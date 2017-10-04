@@ -1,4 +1,4 @@
-package com.suleiman.pagination.utils;
+package com.tmdb.movieslisting.utils;
 
 public interface PaginationAdapterCallback {
 

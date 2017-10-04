@@ -1,4 +1,4 @@
-package com.suleiman.pagination.activity.main.adapter;
+package com.tmdb.movieslisting.activity.main.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,10 +20,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.suleiman.pagination.R;
-import com.suleiman.pagination.activity.movieDetails.MovieDetailsActivity;
-import com.suleiman.pagination.models.Result;
-import com.suleiman.pagination.utils.PaginationAdapterCallback;
+import com.tmdb.movieslisting.R;
+import com.tmdb.movieslisting.activity.movieDetails.MovieDetailsActivity;
+import com.tmdb.movieslisting.models.Result;
+import com.tmdb.movieslisting.utils.PaginationAdapterCallback;
 
 import java.util.ArrayList;
 import java.util.List;

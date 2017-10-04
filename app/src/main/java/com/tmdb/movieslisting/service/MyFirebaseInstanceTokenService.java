@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.suleiman.pagination.service;
+package com.tmdb.movieslisting.service;
 
 import android.util.Log;
 
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
-import com.suleiman.pagination.R;
-import com.suleiman.pagination.models.DeviceToken;
+import com.tmdb.movieslisting.R;
+import com.tmdb.movieslisting.models.DeviceToken;
 
 
 public class MyFirebaseInstanceTokenService extends FirebaseInstanceIdService {
@@ -37,7 +37,7 @@ public class MyFirebaseInstanceTokenService extends FirebaseInstanceIdService {
 
         sendRegistrationToServer(refreshedToken);
     }
-    
+
     private void sendRegistrationToServer(String token) {
         FirebaseDatabase.getInstance()
                 .getReference()

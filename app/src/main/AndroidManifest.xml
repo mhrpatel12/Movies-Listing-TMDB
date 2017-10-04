@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.suleiman.pagination">
+    package="com.tmdb.movieslisting">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
         <activity
-            android:name=".activity.main.MainActivity"
+            android:name="com.tmdb.movieslisting.activity.main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,23 +23,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.movieDetails.MovieDetailsActivity"
+            android:name="com.tmdb.movieslisting.activity.movieDetails.MovieDetailsActivity"
             android:label="@string/title_activity_movie_details"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.chatRoom.ChatRoomActivity"
+            android:name="com.tmdb.movieslisting.activity.chatRoom.ChatRoomActivity"
             android:screenOrientation="portrait" />
 
         <service
-            android:name=".service.MyFirebaseInstanceIDService"
+            android:name="com.tmdb.movieslisting.service.MyFirebaseInstanceIDService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service
-            android:name=".service.MyFirebaseInstanceTokenService"
+            android:name="com.tmdb.movieslisting.service.MyFirebaseInstanceTokenService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
